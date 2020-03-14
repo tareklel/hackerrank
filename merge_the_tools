@@ -1,0 +1,25 @@
+#merge the tools hacker rank problem solution
+def merge_the_tools(string, k):
+    # your code goes here
+    final = []
+    #number of sub-segments
+    diff = int(len(string)/k)
+    n=int(0)
+    for x in range(diff):
+        segment= list(string[n:n+k])
+        seg_len = len(segment)
+        #iterate through each subsegment
+        for a in range(seg_len-1):
+            if segment[seg_len-a-1] in segment[:seg_len-a-1]:
+                del segment[seg_len-a-1]
+        print("".join(segment))
+        #increment to next segment index        
+        n+=k
+        
+        
+
+
+if __name__ == '__main__':
+    string = "CCABCBACD"
+    k =2 
+    merge_the_tools(string, k)
